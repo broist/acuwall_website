@@ -1,0 +1,17 @@
+# Nyers generált anyag — több GB, soha nem megy gitbe
+assets/
+
+# Node
+node_modules/
+.astro/
+dist/
+
+# Környezeti változók — SOHA
+.env
+.env.*
+!.env.example
+
+# Rendszer
+.DS_Store
+Thumbs.db
+*.log
