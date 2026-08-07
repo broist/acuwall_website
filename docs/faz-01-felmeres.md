@@ -229,7 +229,12 @@ A git identitás repo-lokálisan beállítva: `broist` /
 `mailforistvanbiro@gmail.com` (globálisan nem volt beállítva, enélkül a
 commit elszállt).
 
-## 9. Hiba a BRIEF ffmpeg-lépésében (8a) — később javítandó
+## 9. Hiba a BRIEF ffmpeg-lépésében (8a) — ✅ JAVÍTVA 2026-08-07
+
+> Javítva: a BRIEF 8a szakasza per-klip vágásra átírva (18 kocka/klip,
+> az utolsó 19), a horgonyok hardkódolva. Lásd `docs/faz-02-terv.md` 4. pont.
+> Az alábbi leírás a hiba eredeti rögzítése.
+
 
 10 klip × 4 mp = **40 mp** összefűzött szekvencia. A briefben szereplő
 `-vf "fps=30,scale=1920:-2"` ebből **1200 kockát** vág ki, nem 180-at.

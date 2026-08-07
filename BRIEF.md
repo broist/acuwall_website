@@ -391,26 +391,68 @@ Mentés: `assets/rooms/01-eloter.png` + `01-eloter.mp4` stb.
 
 **Ne `<video>` scrub-ot használj.** A `currentTime` scrubbing iOS Safariban akadozik. Képsorozat canvas-en, ahogy az Apple csinálja.
 
-```bash
-printf "file '%s'\n" assets/build/clip-*.mp4 > /tmp/list.txt
-ffmpeg -f concat -safe 0 -i /tmp/list.txt -c copy assets/build/sequence.mp4
+### ⚠ Klipenként vágunk, nem az összefűzött fájlból
 
-mkdir -p public/seq
-ffmpeg -i assets/build/sequence.mp4 -vf "fps=30,scale=1920:-2" -q:v 2 public/seq/frame_%04d.jpg
+Az összefűzött `sequence.mp4`-ből vágni hibás: a kerekítési csúszás
+klipenként halmozódik, és a fázis-horgonyok elcsúsznak. Klipenként vágunk,
+pontosan 18 kockát, `-start_number`-rel egy globális sorszámozásba.
+
+Minden klip 4 mp @ `fps=4.5` → **18 kocka**. Az utolsó klip 19-et kap, hogy a
+szekvencia pontosan a stage-11 kockáján érjen véget (18 kocka a t=0…3,778 mp
+tartományt fedi, a 19. van t=4,0-n).
+
+```bash
+mkdir -p public/seq public/seq-sm
+
+# --- desktop, 1920px ---
+i=0
+for n in 01 02 03 04 05 06 07 08 09 10; do
+  next=$(printf "%02d" $((10#$n + 1)))
+  frames=18; [ "$n" = "10" ] && frames=19
+  ffmpeg -i "assets/build/clip-$n-$next.mp4" \
+    -vf "fps=4.5,scale=1920:-2" -vsync 0 -frames:v $frames \
+    -q:v 2 -start_number $i "public/seq/frame_%04d.jpg"
+  i=$((i + frames))
+done
+
+# --- mobil, 960px ---
+i=0
+for n in 01 02 03 04 05 06 07 08 09 10; do
+  next=$(printf "%02d" $((10#$n + 1)))
+  frames=18; [ "$n" = "10" ] && frames=19
+  ffmpeg -i "assets/build/clip-$n-$next.mp4" \
+    -vf "fps=4.5,scale=960:-2" -vsync 0 -frames:v $frames \
+    -q:v 3 -start_number $i "public/seq-sm/frame_%04d.jpg"
+  i=$((i + frames))
+done
+
 for f in public/seq/frame_*.jpg; do
   avifenc --min 24 --max 34 --speed 4 "$f" "${f%.jpg}.avif"
 done
 rm public/seq/*.jpg
 
-mkdir -p public/seq-sm
-ffmpeg -i assets/build/sequence.mp4 -vf "fps=30,scale=960:-2" -q:v 3 public/seq-sm/frame_%04d.jpg
 for f in public/seq-sm/frame_*.jpg; do
   avifenc --min 28 --max 38 --speed 4 "$f" "${f%.jpg}.avif"
 done
 rm public/seq-sm/*.jpg
 ```
 
-**Célszám:** 180 kocka × ~50 KB ≈ 9 MB desktop, ~3 MB mobil. 12 MB fölött csökkentsd 120 kockára.
+Eredmény: `frame_0000` … `frame_0180`, összesen **181 kocka**.
+
+### Fázis-horgonyok — HARDKÓDOLD
+
+A `stage-N` a `(N-1) * 18` indexű kockán van. Ezt az overlay-szinkron
+**konstansként** használja, nem futásidőben számolja:
+
+```js
+// A 11 építési fázis kockaindexe. Determinisztikus, a 8a export garantálja.
+const STAGE_FRAMES = [0, 18, 36, 54, 72, 90, 108, 126, 144, 162, 180];
+const TOTAL_FRAMES = 181;
+```
+
+**Célszám:** 181 kocka × ~50 KB ≈ 9 MB desktop, ~3 MB mobil. 12 MB fölött
+csökkentsd `fps=3`-ra (12 kocka/klip, 121 kocka össz) — a horgonyosztó ekkor
+12, nem 18. Ne a kockaszámot vágd le utólag, mert a horgonyok elcsúsznak.
 
 ## 8b. Szobavideók → web
 
