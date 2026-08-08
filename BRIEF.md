@@ -201,14 +201,37 @@ A trükk: **a kamera és a fény soha nem mozdul.** Csak a ház változik.
 [CAMERA LOCK blokk szó szerint a FÁZIS 2-ből]
 [LIGHT LOCK blokk szó szerint a FÁZIS 2-ből]
 [LOCATION blokk szó szerint a FÁZIS 2-ből]
-Reference: gerinc-master — same plot, same terrain, same ridgelines,
-same treeline, identical framing.
+Reference: <<<gerinc-master element id>>> gerinc-master — same plot, same
+terrain, same ridgelines, same treeline, identical framing.
 
 STAGE CONTENT: <<< a fázisonként változó rész >>>
 
-Photoreal construction documentary photography. No text, no logos,
-no watermark, 16:9.
+CRITICAL — WHAT DOES NOT EXIST YET IN THIS FRAME:
+<<< fázisonként: mi az, ami ekkor még nincs meg >>>
+
+SITE STATE — an active building site, not a finished garden:
+The reflecting pool is an empty unlined excavation with raw earth sides.
+No planting established, no ornamental grasses, no sphere lights, no
+raked gravel and no stepping stones yet — only bare churned earth,
+compacted site tracks and stacked materials where the landscape will
+later go.
+
+Photoreal construction documentary photography. No people. No text, no
+logos, no watermark, 16:9.
 ```
+
+### A két új blokkról
+
+A `CAMERA LOCK` / `LIGHT LOCK` / `LOCATION` **érinthetetlen**. A `STAGE CONTENT`
+viszont a prompt kifejezetten fázisonként változó része — ezért került alá két
+új alblokk, a KAPU 2 tanulságai alapján:
+
+- **WHAT DOES NOT EXIST YET** — enélkül a modell a referenciakép teljes tömege
+  felé húz, és a 04-re is kész tetőt rajzol. Fázisonként változik.
+- **SITE STATE** — enélkül a `LOCATION` verbatim másolása kész kertet
+  eredményez az építkezésen: tele medence, beállt növényzet, lerakott kavics.
+  A 01–09-en végig azonos, a 09-nél enyhül (kavics részben lerakva), a 10–11-nél
+  elmarad.
 
 ## A 11 fázis
 
@@ -242,7 +265,8 @@ connection points are the visual subject of this frame. Formwork removed
 and stacked.
 ```
 
-### 04 — TALPSZELVÉNY + FÖLDSZINTI VÁZ / `THE STEEL RISES`
+### 04 — ACÉLVÁZ / `THE STEEL RISES`
+*Átfazírozva a KAPU 2 után: a falak és az oromfal-háromszögek együtt állnak fel — valós LGS-építésnél is így megy, és a modell is ezt adja megbízhatóan. Tető még nincs.*
 ```
 Ground floor steel frame erected. Cold-formed galvanised steel C-section
 studs at 600mm centres, bolted into galvanised bottom track anchored to
@@ -252,7 +276,16 @@ Punched service holes visible in the web of every stud. Tall steel
 headers over the full-height gable opening and over the wing's square
 windows. The long barn footprint and its low side wing are both legible
 in raw steel. Temporary bracing straps. Neat bundles of labelled steel
-profiles laid out on the slab.
+profiles laid out on the slab. The tall triangular gable-end walls are
+framed in steel to their full apex, the raking top tracks climbing
+cleanly to the ridge points — but nothing spans between them.
+```
+```
+CRITICAL — WHAT DOES NOT EXIST YET IN THIS FRAME:
+No roof structure whatsoever. No trusses, no rafters, no purlins, no
+ridge beam — nothing spans between the two gable apexes, open sky
+between them. No mezzanine and no upper floor joists; the slab is
+visible across the whole footprint.
 ```
 
 ### 05 — GALÉRIAFÖDÉM / `MEZZANINE DECK`
@@ -267,14 +300,17 @@ boom extended, a bundle of steel profiles suspended mid-lift. Perimeter
 scaffolding beginning on the near flank.
 ```
 
-### 06 — OROMFAL-VÁZ / `GABLE FRAME`
+### 06 — TETŐGERINC / `THE RIDGE`
+*Átfazírozva: a régi „oromfal-váz" beolvadt a 04-be, helyette a tető emelésének kezdete — ez adja a szekvencia legdinamikusabb klipjét.*
 ```
-Gable and knee walls framed. Galvanised C-section stud walls rise from
-the mezzanine deck, and the tall triangular gable-end wall is now framed
-in steel all the way to its apex, the raking top track climbing cleanly
-to the ridge point. The full barn silhouette is legible for the first
-time in raw galvanised steel. The low side wing stands complete in frame
-beside it. Scaffolding to full height on the near flank.
+The roof is going up. A long galvanised steel ridge beam now spans
+between the two gable apexes, and the first three or four steep
+galvanised roof trusses are seated on the wall tracks at the far end,
+standing alone against the sky with wide gaps between them. The rest of
+the roof is still open. A telescopic mobile crane at the plot edge, boom
+extended high, a single truss suspended mid-lift on slings. Bundles of
+remaining trusses laid out on the mezzanine deck. Scaffolding to full
+height on the near flank.
 ```
 
 ### 07 — TETŐSZERKEZET / `THE ROOF FRAME`
@@ -356,18 +392,54 @@ gable in the still pool. The house reads as a lantern on the ridge.
 
 10 átmenet: 01→02 … 10→11.
 
+A klipek **nem** absztrakt morfolások. Látszania kell, hogy **gépek dolgoznak és emberek szerelik a házat.** Ez a szekvenció érzelmi tartalma: nem magától épül fel, hanem megépítik.
+
 ### Ha van first/last frame interpoláció (preferált)
-`first_frame = stage-N.png`, `last_frame = stage-N+1.png`, 3–4 mp.
+`start_image = stage-N.png`, `end_image = stage-N+1.png`, `seedance1_5`, 4 mp, 1080p, néma.
+
+### Közös klip-fej — minden átmenetbe szó szerint
 
 ```
 Locked-off tripod shot, camera absolutely static, zero pan, zero zoom,
-zero parallax. A construction time-lapse: the structure assembles itself
-between the two frames. Steel members rise into place, workers and
-machinery blur through as motion streaks. Cloud shadows drift across the
-ridgelines. Smooth, continuous, no cuts, no camera shake. The background
-terrain, ridgelines and treeline must remain perfectly still — no
-morphing, no drifting, no warping on the landscape.
+zero parallax. A construction time-lapse compressing several days into a
+few seconds. The structure genuinely transforms between the two frames.
+
+THE CREW IS VISIBLE AND LEGIBLE. Workers in orange and yellow hi-vis
+vests and white hard hats move about the site with the smeared,
+trailing motion blur of time-lapse — you can always tell what each
+person is doing, but never see a face. Plant and machinery move with
+the same blur. This is a busy, working site, not an empty one.
+
+Cloud shadows drift across the ridgelines. Smooth, continuous, no cuts,
+no camera shake. The background terrain, ridgelines and treeline must
+remain perfectly still — no morphing, no drifting, no warping on the
+landscape.
 ```
+
+### Fázisonkénti koreográfia — mi történik a klipben
+
+| Klip | Aki dolgozik és amivel |
+|---|---|
+| **01→02** | Két lánctalpas markoló vágja ki a munkagödröt, dömper fordul, földkupac nő. Geodéta állványos műszerrel. |
+| **02→03** | Zsaluzó brigád rakja a táblákat, betonszivattyú karja leng ki, mixerkocsi ürít, majd simítógép köröz a friss betonon. |
+| **03→04** | Acélszerelők csavarozzák a C-szelvényeket, kis teleszkópos rakodó adogatja a kötegeket. A falak sorra állnak fel. |
+| **04→05** | Autódaru emeli be a födémgerenda-kötegeket, szerelők fogadják és rögzítik, majd terítik a födémlemezt. |
+| **05→06** | Daru emeli a gerincgerendát és az első rácsostartókat, szerelők vezetik be a helyükre. Állványzat nő. |
+| **06→07** | Rácsostartók sorban repülnek be, tetőn dolgozó szerelők rögzítik a szelemeneket. Az ezüst bordázat kirajzolódik. |
+| **07→08** | Tetőfedők terítik a korcolt lemezt, membránozó brigád húzza a fóliát, ablakosok emelik be az üvegeket. |
+| **08→09** | Állványon burkolók ragasztják a klinkerlapokat, raklapokat mozgat a rakodó, fóliát húznak le az üvegekről. |
+| **09→10** | Állványbontás, kis forgókotró mélyíti a medencét, kertépítők ültetnek, kavicsterítés. A hely kertté válik. |
+| **10→11** | **Nincsenek emberek.** Csak a fény: sorra gyulladnak a belső lámpák, a köd leszáll a völgybe, az ég indigóba fordul. |
+
+### ⚠ Miért nem kockázatos itt az ember
+
+Az emberalak a leggyakoribb AI-artefakt forrás — kéz, arc, végtag. **A mi CAMERA LOCK-unk ezt kivédi:** 55 méter távolságból egy ember a képmagasság kb. 3%-a, nagyjából 30 pixel. Nincs arc, amit el lehetne rontani. A hi-vis mellény és a fehér sisak viszont ezen a méreten is azonnal olvasható, és épp azt közli, amit kell: *itt szakemberek dolgoznak.*
+
+Ezért a **hi-vis kötelező elem**, nem díszítés — ez teszi a 30 pixeles alakot értelmezhetővé.
+
+### Az állóképek maradnak ember nélkül
+
+A 11 stage-kép továbbra is `no people`. Ezek a klipek **kulcskockái**: a munka a kockák *között* zajlik. Így a scroll-scrub közben a néző hol üres, tiszta építési állapotot lát, hol nyüzsgő munkát — pont az a ritmus, amitől él a dolog.
 
 ### Ha nincs interpoláció
 `generate_video` image-to-video-val fázisonként, ugyanezzel a prompttal, majd ffmpeg keresztúsztatás. Gyengébb, de működik.
@@ -375,7 +447,6 @@ morphing, no drifting, no warping on the landscape.
 ### Végrehajtás
 - `generate_video_batch`, `jobs_wait`
 - **Nézd meg mind a 10-et.** Ami „úszik" a háttérben, azt újragenerálod.
-- `upscale_video` a jóváhagyottakra
 - Mentés: `assets/build/clip-01-02.mp4` …
 
 ---
