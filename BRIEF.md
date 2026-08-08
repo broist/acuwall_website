@@ -67,12 +67,19 @@ A név nem díszítés: az acélváz *a gerinc*. Az egész oldal erre az egy gon
 
 | | |
 |---|---|
-| **Stílus** | alpesi-modern |
-| **Szerkezet** | hidegen hajlított, horganyzott acél C- és Z-szelvényes váz (LGS) |
-| **Méret** | kétszintes, kb. 240 m², konzolos emeleti terasszal |
-| **Helyszín** | magyar középhegységi gerinc, bükkös-fenyves erdőszél, ködbe vesző hegyvonulatok, bazalt sziklakibúvások, ősz eleje |
+| **Stílus** | modern csűr (barn-modern) — meredek nyeregtető, ereszkinyúlás nélkül |
+| **Szerkezet** | hidegen hajlított, horganyzott acél C- és Z-szelvényes váz (LGS), meredek acél rácsostartós nyeregtetővel |
+| **Méret** | másfél szintes, kb. 200 m² — teljes belmagasságú nagytér + tölgy galéria, mellette hosszú alacsony szárny |
+| **Burkolat** | homokszínű klinker **lapburkolat lécvázon** az oromfalon + antracit korcolt lemez, ami a hosszoldalon lefordul a falra |
+| **Helyszín** | magyar középhegységi gerinc, drámai rétegzett hegyvonulatok, bükkös-fenyves, bazalt kibúvások, tükröződő vízfelület, ősz eleje |
 
-A magyar helyszín hitelesebb, mint egy svájci völgy — az AcuWall Magyarországon épít, és a magyar telektulajdonos így magára ismer. Ha mégis a teljes alpesi verziót akarod, a promptokban a `LOCATION` blokkot cseréld az ott megadott alternatívára; semmi más nem változik.
+A név most háromszorosan is talál: az acél rácsostartók **bordázata egy gerinc mentén**, a **hegygerinc**, amin a ház áll, és a **tartószerkezet mint gerinc**. A csűrforma ráadásul az acélnak kedvez — egy meredek nyeregtető horganyzott rácsostartókból sokkal látványosabb, mint egy lapos doboz.
+
+A magyar helyszín hitelesebb, mint egy svájci völgy — az AcuWall Magyarországon épít, és a magyar telektulajdonos így magára ismer. A `LOCATION` blokk ezért drámaian hegyvidéki, de magyar karakterű: meredek, erdős lejtők, egymás mögé rétegződő hegyvonulatok. Ha mégis a teljes alpesi verziót akarod, a `LOCATION` blokkot cseréld az ott megadott alternatívára; semmi más nem változik.
+
+### ⚠ A klinker és az acél viszonya
+
+A homlokzat **lapburkolat**, nem tömör falazat. Ez valós építési mód acélvázon, és a szekvencia becsületessége múlik rajta: a **09-es fázisban látszania kell, hogy a klinkerlapok lécvázra mennek fel.** Ha a kész ház tömör téglafalúnak olvasódik, az egész építési videó önmagának mond ellent — acélvázat mutatnánk, amiből tégla ház lesz.
 
 ---
 
@@ -118,34 +125,46 @@ Mielőtt bármit generálsz:
 A legfontosabb egyetlen kép az egész projektben. Ehhez igazodik minden más. **4 variánst** generálj, mutasd meg őket.
 
 ```
-Photoreal architectural photography of a completed two-storey
-alpine-modern house built on a light-gauge galvanised steel frame.
+Photoreal architectural photography of a completed single-and-a-half
+storey modern barn house built on a light-gauge galvanised steel frame.
 
-FORM: crisp rectilinear volumes. A lower plinth clad in dry-stacked
-local basalt. The upper volume clad in vertical charred-and-oiled larch
-boards with a fine shadow-gap rhythm. Anthracite standing-seam metal
-roof with a thin 900mm cantilevered overhang and concealed gutters.
-Floor-to-ceiling glazing across the south face in dark anthracite
-aluminium frames. A cantilevered upper terrace with a frameless glass
-balustrade, its steel edge beam left honestly visible as a slim dark
-line. Deep window reveals.
+FORM: one long primary volume under a steep symmetrical gable roof at
+45 degrees, with NO eaves overhang anywhere — the roof plane stops flush
+with the wall in a sharp knife edge, gutters fully concealed. The roof is
+anthracite standing-seam metal that continues down over both long
+elevations, so roof and flank read as one continuous dark skin with an
+unbroken seam rhythm. The gable end facing the valley is clad in warm
+sand-coloured brick slips in a fine stack bond. Full-height glazing fills
+that gable end in slim matte-black aluminium frames, carried up into the
+triangular apex as a single glazed gable light. A recessed covered
+terrace is cut into the ground floor beneath the gable, its soffit lined
+in oiled oak. A long low single-storey wing extends to camera-right,
+flat-roofed in the same anthracite metal, with deep-set square windows.
+Through the gable glazing an oak mezzanine gallery is visible, its
+blackened steel edge beam left honestly exposed as a slim dark line.
 
 LOCATION (Hungarian uplands — default):
-A ridge-top plot in the Hungarian central highlands. Mature beech and
-Scots pine forest flanking the plot, basalt outcrops breaking through
-low native grasses. Layered ridgelines receding into soft mist in the
-far distance. Early autumn: the beech just turning copper. A raked
-gravel approach with basalt slab stepping stones.
+A ridge-top plot high in the Hungarian central highlands. Steep forested
+slopes fall away below the plot on the valley side. Mature beech and
+Scots pine forest flanking the plot, large basalt outcrops breaking
+through low native grasses and ornamental feather grasses. Range after
+range of layered mountain ridgelines receding into soft mist far below
+and beyond, the furthest almost dissolved into the sky. Early autumn:
+the beech just turning copper. A still dark reflecting pool with a
+basalt slab edge lies in front of the gable, mirroring the roofline. A
+raked gravel approach with basalt slab stepping stones. Low frosted-glass
+sphere lights sitting down in the grasses.
 
 LOCATION (alpine alternative — only if swapped in):
-A private plot in an alpine lake valley, granite peaks in the far
+A ridge-top plot in an alpine valley, granite peaks in the far
 background, mature Scots pine forest flanking the plot.
 
 CAMERA LOCK — reuse this block verbatim in every later shot:
-Fixed tripod camera, three-quarter view from front-left, 35mm
-full-frame equivalent lens, camera height 6 metres, 40 metres from the
-building face, 4 degrees downward tilt. The building occupies the
-central 60% of frame. Horizon line at 45% frame height.
+Fixed tripod camera, three-quarter view from front-left, so the full
+glazed gable end and one long flank are both visible. 35mm full-frame
+equivalent lens, camera height 4 metres, 55 metres from the gable face,
+1.5 degrees downward tilt. The building occupies the central 70% of
+frame. Horizon line at 52% frame height.
 
 LIGHT LOCK — reuse this block verbatim in every later shot:
 Late-afternoon light, sun low from camera-left at roughly 25 degrees,
@@ -155,6 +174,13 @@ still air, no haze.
 Hasselblad-grade detail, natural colour, no colour grading, no people,
 no vehicles, no text, no logos, no watermark, 16:9.
 ```
+
+> **Miért változott a CAMERA LOCK?** A régi (6 m magasság, 40 m távolság,
+> 4° letekintés, központi 60%) egy tömör kétszintes kockára készült. A csűr
+> hosszú, alacsony tömeg egy magas oromfallal: 6 méterről lenézve az oromfal
+> ellaposodik és elveszti a sziluettjét. A 4 m magasság és az 1,5°-os
+> letekintés megtartja a tető égbe vágó élét, az 55 m távolság és a központi
+> 70% pedig befogja a hosszú szárnyat is.
 
 **Amikor kiválasztottam a nyerőt:**
 - mentsd reference element-ként: `gerinc-master`
@@ -190,27 +216,30 @@ no watermark, 16:9.
 ```
 An empty ridge-top plot. Undisturbed native grasses and basalt outcrops
 where the house will stand. A surveyor's timber batter board with taut
-string lines marks the future footprint. Four orange setting-out pegs.
-Nothing else built.
+string lines marks the future footprint — a long rectangle with a shorter
+wing off one side. Four orange setting-out pegs. A shallow natural hollow
+where the reflecting pool will later sit. Nothing else built.
 ```
 
 ### 02 — FÖLDMUNKA / `EXCAVATION`
 ```
-Excavation stage. A rectangular pit cut into the ridge, clean vertical
-faces, dark exposed subsoil streaked with weathered basalt. A spoil heap
-at the plot edge. A yellow tracked excavator parked at the pit's far
-corner, boom lowered. Orange drainage pipe stubs and blue water service
-protruding from the base. Timber formwork stacked on pallets.
+Excavation stage. A long rectangular pit cut into the ridge with a
+shorter arm off one side, clean vertical faces, dark exposed subsoil
+streaked with weathered basalt. A spoil heap at the plot edge. A yellow
+tracked excavator parked at the pit's far corner, boom lowered. Orange
+drainage pipe stubs and blue water service protruding from the base.
+Timber formwork stacked on pallets.
 ```
 
 ### 03 — ALAPOZÁS / `THE SLAB`
 ```
-Foundation complete. A crisp poured-concrete raft slab, still damp and
-dark at the edges, power-floated smooth. Rigid insulation visible at the
-slab edge. A precise regular grid of galvanised steel hold-down brackets
-and cast-in anchor bolts protrudes along the perimeter and gridlines —
-the steel connection points are the visual subject of this frame.
-Formwork removed and stacked.
+Foundation complete. A crisp poured-concrete raft slab in the long barn
+footprint with its side wing, still damp and dark at the edges,
+power-floated smooth. Rigid insulation visible at the slab edge. A
+precise regular grid of galvanised steel hold-down brackets and cast-in
+anchor bolts protrudes along the perimeter and gridlines — the steel
+connection points are the visual subject of this frame. Formwork removed
+and stacked.
 ```
 
 ### 04 — TALPSZELVÉNY + FÖLDSZINTI VÁZ / `THE STEEL RISES`
@@ -219,80 +248,94 @@ Ground floor steel frame erected. Cold-formed galvanised steel C-section
 studs at 600mm centres, bolted into galvanised bottom track anchored to
 the slab. Bright zinc spangle finish catching the low sun — the frame
 reads as a precise silver lattice, unmistakably steel, not timber.
-Punched service holes visible in the web of every stud. Steel headers
-over the large openings. Temporary bracing straps. Neat bundles of
-labelled steel profiles laid out on the slab.
+Punched service holes visible in the web of every stud. Tall steel
+headers over the full-height gable opening and over the wing's square
+windows. The long barn footprint and its low side wing are both legible
+in raw steel. Temporary bracing straps. Neat bundles of labelled steel
+profiles laid out on the slab.
 ```
 
-### 05 — EMELETI FÖDÉM / `UPPER DECK`
+### 05 — GALÉRIAFÖDÉM / `MEZZANINE DECK`
 ```
-First floor structure in place. Galvanised steel C-section floor joists
-span the ground floor walls at close centres, with a steel edge beam
-running the perimeter. Half decked in structural sheeting, half showing
-open steel joists with the slab visible below. A telescopic mobile crane
-at the plot edge, boom extended, a bundle of steel profiles suspended
-mid-lift. Full perimeter scaffolding beginning on the near elevation.
+Mezzanine structure in place. Galvanised steel C-section floor joists
+span only the rear two-thirds of the long volume, leaving the tall
+gable-end bay open to the slab below — the double-height great room is
+already readable as a void. A galvanised steel edge beam runs along the
+open edge of the mezzanine. Half decked in structural sheeting, half
+showing open steel joists. A telescopic mobile crane at the plot edge,
+boom extended, a bundle of steel profiles suspended mid-lift. Perimeter
+scaffolding beginning on the near flank.
 ```
 
-### 06 — EMELETI VÁZ / `UPPER FRAME`
+### 06 — OROMFAL-VÁZ / `GABLE FRAME`
 ```
-Upper floor steel frame erected. Second-storey galvanised C-section stud
-walls on the first floor deck, tall openings framed for the terrace
-glazing. The cantilevered terrace steel joists project cleanly from the
-upper volume. The full two-storey mass and roofline are now legible in
-raw galvanised steel — a complete silver skeleton against the autumn
-ridgelines. Scaffolding to full height.
+Gable and knee walls framed. Galvanised C-section stud walls rise from
+the mezzanine deck, and the tall triangular gable-end wall is now framed
+in steel all the way to its apex, the raking top track climbing cleanly
+to the ridge point. The full barn silhouette is legible for the first
+time in raw galvanised steel. The low side wing stands complete in frame
+beside it. Scaffolding to full height on the near flank.
 ```
 
 ### 07 — TETŐSZERKEZET / `THE ROOF FRAME`
+*A szekvencia csúcspontja. Ez a kocka adja el az acélt.*
 ```
-Roof structure complete. Prefabricated galvanised steel roof trusses
-seated on the wall tracks, with steel purlins running across them. The
-deep 900mm overhang now cantilevers clear of the walls. The house is
-fully framed but entirely open — sky visible through the steel skeleton
-from every angle. The regularity and precision of the steel grid is the
-subject: every member identical, every spacing exact.
+Roof structure complete. Prefabricated galvanised steel roof trusses at a
+steep 45 degrees seated on the wall tracks, with steel purlins running
+across them — a long silver ribcage marching down the ridge against the
+misty autumn mountains. No overhang anywhere: the trusses stop flush at
+the gable. The house is fully framed but entirely open, sky visible
+through the steel skeleton from every angle. The regularity and precision
+of the steel grid is the subject: every member identical, every spacing
+exact.
 ```
 
 ### 08 — BURKOLATVÁZ + PÁRAZÁRÁS / `SKIN`
 ```
 Weathertight stage. Roof decked and covered in anthracite standing-seam
-metal sheet with a folded drip edge. Walls sheathed and wrapped in a
-taut breather membrane, printed logo repeat visible, taped joints.
-Anthracite aluminium window frames installed with glazing units in,
-protective blue film still on the frames. Vertical cladding battens
-fixed over the membrane, ready to receive the larch. Scaffolding still
-up on the near elevation.
+metal sheet, the seams running unbroken from the ridge down over both
+long elevations with a folded drip edge and no overhang. Walls sheathed
+and wrapped in a taut breather membrane, printed logo repeat visible,
+taped joints. Matte-black aluminium window frames installed with glazing
+units in, including the full-height gable glazing, protective blue film
+still on the frames. Horizontal cladding battens fixed over the membrane
+on the gable end, ready to receive the brick slips. Scaffolding still up
+on the near flank.
 ```
 
 ### 09 — HOMLOKZAT / `THE FACE`
+*A becsületesség-kocka. Itt kell látszania, hogy a klinker burkolat, nem falazat.*
 ```
-Cladding stage. Roughly 70% of the vertical charred larch cladding fixed
-to the upper volume, its dark grain sharp against the remaining pale
-membrane and battens. Dry-stacked basalt plinth cladding two-thirds laid,
-with a stack of stone on a pallet at the base. Protective film peeled
-from the lower windows, still on the upper. Scaffolding removed from the
-near elevation, remaining on the far. The house is becoming itself.
+Cladding stage. Roughly 70% of the warm sand-coloured brick slips fixed
+to the gable end in a fine stack bond. The cut edge of the unfinished
+area is the subject of this frame: the thin slips are clearly a cladding
+layer fixed to horizontal battens over the membrane, not solid masonry —
+the batten cavity behind them is legible. A stack of slips on a pallet
+and a bucket of adhesive at the base. Protective film peeled from the
+lower glazing, still on the gable light above. Scaffolding removed from
+the near flank, remaining on the far. The house is becoming itself.
 ```
 
 ### 10 — KÉSZ / `COMPLETION`
 ```
 The finished house, identical in every respect to the reference image
-gerinc-master. All scaffolding, plant and materials removed. Raked gravel
-approach laid, basalt slab stepping stones, low native planting
-established, the frameless glass terrace balustrade in place. Clean,
-calm, complete.
+gerinc-master. All scaffolding, plant and materials removed. The
+reflecting pool filled and perfectly still, mirroring the gable. Raked
+gravel approach laid, basalt slab stepping stones, ornamental feather
+grasses and low native planting established. Clean, calm, complete.
 ```
 
 ### 11 — HERO / `DUSK`
 *Az egyetlen kép, ahol a LIGHT LOCK változik.*
 ```
 The finished house at blue hour, twenty minutes after sunset. Same camera
-lock exactly. Deep indigo sky, the last warm band behind the ridgelines,
-mist settling into the valley below. Every interior light on — warm 2700K
-glow pouring out through the full-height glazing, the ceilings lit from
-within, the terrace washed by concealed linear uplighters. Reflections on
-the damp basalt path. The house reads as a lantern on the ridge.
+lock exactly. Deep indigo sky, the last warm band behind the mountain
+ridgelines, mist settling into the valley far below. Every interior light
+on — warm 2700K glow pouring out through the full-height gable glazing
+and up into the triangular apex, the mezzanine gallery lit from within,
+the recessed terrace washed by concealed linear uplighters. The frosted
+sphere lights glowing down in the grasses. Reflections doubling the whole
+gable in the still pool. The house reads as a lantern on the ridge.
 ```
 
 ## Végrehajtás
@@ -303,6 +346,8 @@ the damp basalt path. The house reads as a lantern on the ridge.
   - **Elmozdult a kamera bárhol?** → újragenerálás
   - **Változott a háttér gerincvonala?** → újragenerálás
   - **A 04–07 fázisban a váz tényleg acélnak néz ki?** Ha fás, sárgás, gyalult deszkás → újragenerálás
+  - **A 07-es tényleg meredek nyeregtetős acél rácsostartót mutat, ereszkinyúlás nélkül?** Ez a szekvencia csúcspontja; ha lapos vagy fedett, újragenerálás
+  - **A 09-esen látszik, hogy a klinker lapburkolat lécvázon?** Ha tömör falazatnak olvasódik, az egész acél-történet megbukik → újragenerálás
 - Mentés: `assets/build/stage-01.png` … `stage-11.png`
 
 ---
@@ -341,26 +386,28 @@ Minden tér **egy menüpont**. Mindegyikhez: 1 hero állókép + 1 loop-olható 
 
 | # | Menüpont (HU) | Eyebrow (EN) | Tér |
 |---|---|---|---|
-| 01 | Előtér | THRESHOLD | belépés, bazalt padló, beépített tölgy szekrénysor |
-| 02 | Nappali | THE GREAT ROOM | dupla légtér, kandalló, panorámaüveg a gerincre |
-| 03 | Konyha és étkező | HEARTH & TABLE | monolit sziget, tölgy front, rejtett világítás |
-| 04 | Lépcső és galéria | THE RISE | lebegő tölgyfokok, feketített acél tartó, galéria |
-| 05 | Hálószoba | UPPER CALM | emeleti háló, terasz-kilátás, textil falburkolat |
-| 06 | Fürdőszoba | STONE BATH | tömör bazalt kád, mikrocement, lineáris felülvilágító |
-| 07 | Dolgozó | THE QUIET ROOM | könyvtárfal, sarokablak az erdőre |
-| 08 | Terasz | THE OUTER ROOM | konzolos terasz, tűzhely, alkonyat a gerincen |
+| 01 | Előtér | THRESHOLD | belépés az alacsony szárnyból, bazalt padló, beépített tölgy szekrénysor |
+| 02 | Nappali | THE GREAT ROOM | teljes belmagasságú nagytér a nyeregtető alatt, kandalló, oromfal-üveg a hegyekre |
+| 03 | Konyha és étkező | HEARTH & TABLE | monolit sziget, sötét tölgy front, rejtett világítás, gömblámpák |
+| 04 | Lépcső és galéria | THE RISE | lebegő tölgyfokok, feketített acél tartó, galéria a nagytér fölött |
+| 05 | Hálószoba | UPPER CALM | galériaszinti háló a tetősík alatt, textil falburkolat |
+| 06 | Fürdőszoba | STONE BATH | szabadon álló kád, meleg terrazzo és mikrocement, lineáris felülvilágító |
+| 07 | Dolgozó | THE QUIET ROOM | az alacsony szárnyban, könyvtárfal, mélyen ülő sarokablak az erdőre |
+| 08 | Terasz | THE OUTER ROOM | süllyesztett fedett terasz az oromfal alatt, tűzhely, tükröződő vízfelület |
 
 ## Közös prompt-fej
 
 ```
 Photoreal interior architectural photography, inside the house from
-reference gerinc-master. Consistent material palette throughout:
-white-oiled oak floors and joinery, honed basalt, micro-cement walls in
-warm grey, blackened steel details, linen textiles. Where structure is
-expressed, it is slim blackened steel — never timber posts. Warm 2700K
-concealed lighting plus strong natural daylight from full-height
-glazing. Autumn beech forest and layered misty ridgelines visible
-outside every window.
+reference gerinc-master — a single-and-a-half storey modern barn with a
+steep gable and an oak mezzanine gallery. Consistent material palette
+throughout: white-oiled oak floors, dark oiled oak joinery, warm
+terrazzo, micro-cement walls in warm grey, blackened steel details,
+linen textiles, white plaster walls carrying up into the gable. Where
+structure is expressed, it is slim blackened steel — never timber posts.
+Warm 2700K concealed lighting plus strong natural daylight from
+full-height glazing. Autumn beech forest and layered misty mountain
+ridgelines visible outside every window.
 
 24mm full-frame lens, one-point perspective, verticals perfectly plumb,
 camera at 1.4m eye height. Shot for an architectural monograph: calm,
