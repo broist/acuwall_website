@@ -410,7 +410,7 @@ for n in 01 02 03 04 05 06 07 08 09 10; do
   next=$(printf "%02d" $((10#$n + 1)))
   frames=18; [ "$n" = "10" ] && frames=19
   ffmpeg -i "assets/build/clip-$n-$next.mp4" \
-    -vf "fps=4.5,scale=1920:-2" -vsync 0 -frames:v $frames \
+    -vf "fps=4.5,scale=1920:-2" -fps_mode passthrough -frames:v $frames \
     -q:v 2 -start_number $i "public/seq/frame_%04d.jpg"
   i=$((i + frames))
 done
@@ -421,7 +421,7 @@ for n in 01 02 03 04 05 06 07 08 09 10; do
   next=$(printf "%02d" $((10#$n + 1)))
   frames=18; [ "$n" = "10" ] && frames=19
   ffmpeg -i "assets/build/clip-$n-$next.mp4" \
-    -vf "fps=4.5,scale=960:-2" -vsync 0 -frames:v $frames \
+    -vf "fps=4.5,scale=960:-2" -fps_mode passthrough -frames:v $frames \
     -q:v 3 -start_number $i "public/seq-sm/frame_%04d.jpg"
   i=$((i + frames))
 done
