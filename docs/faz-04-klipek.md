@@ -1,11 +1,21 @@
 # FÁZIS 4 — A 10 építési klip
 
-Generálva: 2026-08-08 · **120 kredit** (1156 → 1036)
+Generálva: 2026-08-08 · **60 kredit** (1096 → 1036)
 Modell: `seedance1_5`, 4 mp, **1080p**, `generate_audio: false`, first/last frame interpoláció
 
-Előtte, ugyanebben a körben: 01/02/03 újragenerálása háttér-zárolással (**12 kredit**),
-a 06-os medence javítása (**4 kredit**), és a 07 újrafuttatása a SITE STATE blokkal
-(**4 kredit**).
+Előtte, ugyanebben a körben: 01/02/03 újragenerálása háttér-zárolással (**12 kredit**,
+1108 → 1096). A kör összesen **72 kredit**.
+
+## ⚠ Ár-korrekció: 6 kredit/klip, nem 12
+
+120 kreditet mondtam a tíz klipre, a valóság **60** lett — klipenként **6**,
+nem 12. A FÁZIS 1 ártáblázatában a `seedance1_5` 1080p sora **következtetett
+volt, nem preflighttal mért**: a 720p-t mértem (4,8), és abból skáláztam
+felfelé. A mért egyenlegváltozás (1096 → 1036) egyértelmű.
+
+**Következmény a tervre:** a 8 szobaklip is olcsóbb lesz a becsültnél.
+A FÁZIS 5 előtt minden tétel `get_cost`-tal preflightolandó, `count`-tal
+szorozva.
 
 ## A kulcskockák feltöltése
 
