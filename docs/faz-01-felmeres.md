@@ -18,6 +18,16 @@ mértek, nem becsültek.
 
 ## 2. Mért egységárak
 
+> **Korrekció (2026-08-08):** az alábbi táblázatban a `nano_banana_pro`,
+> `nano_banana_2` és `seedream_v4_5` sorok **következtetettek voltak, nem
+> preflighttal mértek** — a lentebbi „mind mértek" állítás rájuk pontatlan.
+> A 2026-08-07-i bake-off mért összköltsége (2×NBP-4k + 2×SD = 10 kredit)
+> utólag igazolta őket.
+>
+> **Fontosabb:** a `get_cost` preflight **egységárat ad, nem batch-összeget.**
+> `count: 4` mellett is a darabárat adja vissza. Idézet előtt szorozni kell
+> a `count`-tal. Lásd `docs/faz-02-bakeoff-v2.md`.
+
 ### Kép
 
 | Modell | Beállítás | Kredit |
