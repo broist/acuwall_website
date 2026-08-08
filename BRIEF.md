@@ -544,16 +544,40 @@ for n in 01 02 03 04 05 06 07 08 09 10; do
   i=$((i + frames))
 done
 
-for f in public/seq/frame_*.jpg; do
-  avifenc --min 24 --max 34 --speed 4 "$f" "${f%.jpg}.avif"
-done
-rm public/seq/*.jpg
-
-for f in public/seq-sm/frame_*.jpg; do
-  avifenc --min 28 --max 38 --speed 4 "$f" "${f%.jpg}.avif"
-done
-rm public/seq-sm/*.jpg
+# --- a 181. kocka: az fps szuro nem adja ki, kulon kell ---
+ffmpeg -sseof -0.1 -i assets/build/clip-10-11.mp4 -update 1 \
+  -vf "scale=1920:-2" -q:v 2 public/seq/frame_0180.jpg
+ffmpeg -sseof -0.1 -i assets/build/clip-10-11.mp4 -update 1 \
+  -vf "scale=960:-2"  -q:v 3 public/seq-sm/frame_0180.jpg
 ```
+
+### ⚠ A 181. kockát külön kell kivágni
+
+A `-frames:v 19` nem hoz 19 kockát: az `fps` szűrő a klip hosszából számol,
+és 4,0417 mp × 4,5 = 18,19 → **18 kockát ad**. Az utolsó, `t=4,0`-n álló
+kocka — ami maga a stage-11 — így kimaradna. Ezért megy külön a `-sseof`-fal.
+
+### AVIF: `avifenc` helyett ffmpeg
+
+Az `avifenc` (libavif) nincs telepítve, és nem is kell: az **ffmpeg 9.0
+`libaom-av1`** encodere `-still-picture 1` módban ugyanezt tudja.
+A `libsvtav1` **nem** használható erre — 0 bájtos fájlt ad.
+
+```bash
+ffmpeg -i frame_0000.jpg -c:v libaom-av1 -crf 44 -cpu-used 6 \
+  -still-picture 1 -pix_fmt yuv420p frame_0000.avif
+```
+
+Mérve, 1920px-es kockán:
+
+| crf | KB/kocka | 181 kocka |
+|---|---|---|
+| 36 | 87 | 15,3 MB |
+| 40 | 68 | 12,0 MB |
+| **44** | **52** | **9,2 MB** ← ez tartja a lenti célszámot |
+
+A teljes konverziót a `tools/seq-to-avif.ps1` végzi (desktop crf 44, mobil
+crf 46), és a végén törli a JPEG forrást.
 
 Eredmény: `frame_0000` … `frame_0180`, összesen **181 kocka**.
 
